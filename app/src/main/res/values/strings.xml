@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Formulas</string>
+    <string-array name="formulas">
+        <item>Selecciona la fórmula</item>
+        <item>Ecuación cuadrática</item>
+    </string-array>
 </resources>

@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Formulas">
         <activity
-            android:name=".MainActivity"
+            android:name=".ResultadoFormula"
+            android:exported="false" />
+        <activity
+            android:name=".InicioFormulas"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
