@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.graphics.drawable.toDrawable
 import com.example.formulas.databinding.ActivityInicioFormulasBinding
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -18,7 +15,6 @@ import kotlin.math.sqrt
 class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private val DEBUG_TAG = "InicioFormulas_TAG"
-    private val OPCION_FORMULA_CUADRATICA = 1
 
     private var opcionFormula = 0
     private lateinit var constraintLayout: ConstraintLayout
@@ -46,31 +42,60 @@ class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun calcularFormula(view: View) {
         val parametros = Bundle()
+        val camposValidos = validaCampoNoVacio()
         parametros.putInt("opcionFormula", opcionFormula)
         intent = Intent(this, ResultadoFormula::class.java)
         with(binding) {
             when (opcionFormula) {
-                OPCION_FORMULA_CUADRATICA -> {
-                    TODO("Revisar si no hay nada en los edittext")
-                    var paramA: Int = etFormulaCuadA.text.toString().toInt()
-                    var paramB: Int = etFormulaCuadB.text.toString().toInt()
-                    var paramC: Int = etFormulaCuadC.text.toString().toInt()
+                Constantes.OPCION_FORMULA_CUADRATICA -> {
+                    if (!camposValidos) return
+                    var paramA = getIntEditText(etFormulaCuadA)
+                    var paramB = getIntEditText(etFormulaCuadB)
+                    var paramC = getIntEditText(etFormulaCuadC)
+                    var ecuacion = formatEcuacion(paramA, paramB, paramC)
                     val raices: Array<Double> = raicesEcuacionSegundoGrado(paramA, paramB, paramC)
-                    if (raices.isEmpty()) return TODO("En la otra actividad dirá que no hay soluciones reales?")
-                    /*Log.d(
-                        DEBUG_TAG,
-                        "Las raíces de ${if (paramA == 1) "" else paramA}x^2 + " +
-                                "${if (paramB == 1) "" else paramB}x + " +
-                                "$paramC son x1 = ${raices[0]} y x2 ${raices[1]}"
-                    )*/
+                    if (raices.isEmpty()) {
+                        Toast.makeText(
+                            this@InicioFormulas,
+                            "Lo sentimos, no hay soluciones reales para la ecuacion " +
+                                    "$ecuacion, intente ingresar otros valores",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return
+                    }
+                    parametros.putString("ecuacion", ecuacion)
                     parametros.putDouble("x1", raices[0])
                     parametros.putDouble("x2", raices[1])
-                    intent.putExtras(parametros)
-                    startActivity(intent)
+                }
+                Constantes.OPCION_AREA_TRAPECIO -> {
+                    if (!camposValidos) return
+                    var paramBMayor = getIntEditText(etAreaTrapecioBMayor)
+                    var paramBMenor = getIntEditText(etAreaTrapecioBMenor)
+                    var paramH = getIntEditText(etAreaTrapecioH)
+                    val areaTrapecio = areaTrapecio(paramBMayor, paramBMenor, paramH)
+                    parametros.putInt("paramBMayor", paramBMayor)
+                    parametros.putInt("paramBMenor", paramBMenor)
+                    parametros.putInt("paramH", paramH)
+                    parametros.putInt("areaTrapecio", areaTrapecio)
+                }
+                Constantes.OPCION_DISTANCIA_DOS_PUNTOS -> {
+                    if (!camposValidos) return
+                    var x1 = getIntEditText(etDistX1)
+                    var y1 = getIntEditText(etDistY1)
+                    var x2 = getIntEditText(etDistX2)
+                    var y2 = getIntEditText(etDistY2)
+                    val distanciaPuntos = distanciaDosPuntos(x1, y1, x2, y2)
+                    parametros.putInt("x1", x1)
+                    parametros.putInt("y1", y1)
+                    parametros.putInt("x2", x2)
+                    parametros.putInt("y2", y2)
+                    parametros.putDouble("distanciaPuntos", distanciaPuntos)
                 }
                 else -> return
             }
         }
+        intent.putExtras(parametros)
+        startActivity(intent)
     }
 
     // Fórmulas a resolver
@@ -110,47 +135,139 @@ class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         return sqrt(difPowX + difPowY)
     }
 
-    private fun showFormulaCuadratica() {
+    // Validaciones
+    private fun validaCampoNoVacio(): Boolean {
+        var valido = true
         with(binding) {
+            when (opcionFormula) {
+                Constantes.OPCION_FORMULA_CUADRATICA -> {
+                    if (campoVacio(etFormulaCuadA)) valido = false
+                    if (campoVacio(etFormulaCuadB)) valido = false
+                    if (campoVacio(etFormulaCuadC)) valido = false
+                }
+                Constantes.OPCION_AREA_TRAPECIO -> {
+                    if (campoVacio(etAreaTrapecioBMayor)) valido = false
+                    if (campoVacio(etAreaTrapecioBMenor)) valido = false
+                    if (campoVacio(etAreaTrapecioH)) valido = false
+                }
+                Constantes.OPCION_DISTANCIA_DOS_PUNTOS -> {
+                    if (campoVacio(etDistX1)) valido = false
+                    if (campoVacio(etDistY1)) valido = false
+                    if (campoVacio(etDistX2)) valido = false
+                    if (campoVacio(etDistY2)) valido = false
+                }
+            }
+        }
+        return valido
+    }
+
+    // Auxiliares
+
+    private fun campoVacio(editText: EditText): Boolean {
+        var esVacio = false
+        if (editText.text.toString() == "") {
+            editText.error = "El campo no puede estar vacío"
+            esVacio = true
+        }
+        return esVacio
+    }
+
+    private fun getIntEditText(editText: EditText): Int {
+        return editText.text.toString().toInt()
+    }
+
+    private fun clearEditTexts() {
+        with(binding) {
+            etFormulaCuadA.text.clear()
+            etFormulaCuadB.text.clear()
+            etFormulaCuadC.text.clear()
+            etAreaTrapecioBMayor.text.clear()
+            etAreaTrapecioBMenor.text.clear()
+            etAreaTrapecioH.text.clear()
+            etDistX1.text.clear()
+            etDistX2.text.clear()
+            etDistY1.text.clear()
+            etDistY2.text.clear()
+        }
+    }
+
+    private fun formatEcuacion(a: Int, b: Int, c: Int): String {
+        return "${if (a == 1) "" else a}x^2 + ${if (b == 1) "" else "($b)"} + ${if (c < 0) "($c)" else c}"
+    }
+
+
+    // Layout functions
+    private fun aplicaConstraint(idView: Int) {
+        constraintSet.clone(constraintLayout)
+        constraintSet.connect(
+            R.id.btnResolver,
+            ConstraintSet.TOP,
+            idView,
+            ConstraintSet.BOTTOM
+        )
+        constraintSet.applyTo(constraintLayout)
+    }
+
+    private fun showFormulaCuadratica() {
+        clearEditTexts()
+        with(binding) {
+            // Escondemos área del trapecio
+            linearLayoutAreaTrapecioBMayor.visibility = View.INVISIBLE
+            linearLayoutAreaTrapecioBMenor.visibility = View.INVISIBLE
+            linearLayoutAreaTrapecioH.visibility = View.INVISIBLE
+
+            // Escondemos distancia entre dos puntos
+            linearLayoutDistX1Y1.visibility = View.INVISIBLE
+            linearLayoutDistX2Y2.visibility = View.INVISIBLE
+
+            // Mostramos formula cuadrática
             linearLayoutFormulaCuadA.visibility = View.VISIBLE
             linearLayoutFormulaCuadB.visibility = View.VISIBLE
             linearLayoutFormulaCuadC.visibility = View.VISIBLE
             ivFormulas.setImageResource(R.drawable.ecuacion_cuadratica)
-            constraintSet.clone(constraintLayout)
-            constraintSet.connect(
-                R.id.btnResolver,
-                ConstraintSet.TOP,
-                R.id.linearLayoutFormulaCuadC,
-                ConstraintSet.BOTTOM
-            )
-            constraintSet.applyTo(constraintLayout)
+            aplicaConstraint(R.id.linearLayoutFormulaCuadC)
         }
     }
 
-    private fun showwAreaTrapecio() {
-        TODO("Implementar vistas")
-    }
-
-    private fun showDistanciaDosPuntos() {
-        TODO("Implementar vistas")
-    }
-
-    private fun hideEverything() {
+    private fun showAreaTrapecio() {
+        clearEditTexts()
         with(binding) {
             // Escondemos formula cuadrática
             linearLayoutFormulaCuadA.visibility = View.INVISIBLE
             linearLayoutFormulaCuadB.visibility = View.INVISIBLE
             linearLayoutFormulaCuadC.visibility = View.INVISIBLE
 
-            ivFormulas.setImageResource(android.R.color.transparent)
-            constraintSet.clone(constraintLayout)
-            constraintSet.connect(
-                R.id.btnResolver,
-                ConstraintSet.TOP,
-                R.id.spFormulas,
-                ConstraintSet.BOTTOM
-            )
-            constraintSet.applyTo(constraintLayout)
+            // Escondemos distancia entre dos puntos
+            linearLayoutDistX1Y1.visibility = View.INVISIBLE
+            linearLayoutDistX2Y2.visibility = View.INVISIBLE
+
+            // Mostramos area del trapecio
+            linearLayoutAreaTrapecioBMayor.visibility = View.VISIBLE
+            linearLayoutAreaTrapecioBMenor.visibility = View.VISIBLE
+            linearLayoutAreaTrapecioH.visibility = View.VISIBLE
+            ivFormulas.setImageResource(R.drawable.area_trapecio)
+            aplicaConstraint(R.id.linearLayoutAreaTrapecioH)
+        }
+    }
+
+    private fun showDistanciaDosPuntos() {
+        clearEditTexts()
+        with(binding) {
+            // Escondemos área del trapecio
+            linearLayoutAreaTrapecioBMayor.visibility = View.INVISIBLE
+            linearLayoutAreaTrapecioBMenor.visibility = View.INVISIBLE
+            linearLayoutAreaTrapecioH.visibility = View.INVISIBLE
+
+            // Escondemos formula cuadrática
+            linearLayoutFormulaCuadA.visibility = View.INVISIBLE
+            linearLayoutFormulaCuadB.visibility = View.INVISIBLE
+            linearLayoutFormulaCuadC.visibility = View.INVISIBLE
+
+            // Mostramos distancia entre dos puntos
+            linearLayoutDistX1Y1.visibility = View.VISIBLE
+            linearLayoutDistX2Y2.visibility = View.VISIBLE
+            ivFormulas.setImageResource(R.drawable.distancia_dos_puntos)
+            aplicaConstraint(R.id.linearLayoutDistX2Y2)
         }
     }
 
@@ -161,8 +278,9 @@ class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         with(binding) {
             constraintLayout = clInicioFormulas
             when (opcionFormula) {
-                OPCION_FORMULA_CUADRATICA -> showFormulaCuadratica()
-                else -> hideEverything()
+                Constantes.OPCION_FORMULA_CUADRATICA -> showFormulaCuadratica()
+                Constantes.OPCION_AREA_TRAPECIO -> showAreaTrapecio()
+                Constantes.OPCION_DISTANCIA_DOS_PUNTOS -> showDistanciaDosPuntos()
             }
         }
     }

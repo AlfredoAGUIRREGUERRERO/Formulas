@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Formulas</string>
     <string-array name="formulas">
-        <item>Selecciona la fórmula</item>
         <item>Ecuación cuadrática</item>
+        <item>Área de un trapecio</item>
+        <item>Distancia entre dos puntos</item>
     </string-array>
 </resources>
