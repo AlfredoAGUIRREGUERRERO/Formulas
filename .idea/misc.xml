@@ -4,13 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ecuacion.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ecuacion_background.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/gradient.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_ecuacion.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_footer_splash.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_footer_splash_foreground.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_quadratic_formula.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/ic_quadratic_formula_background.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/otherr_gradient.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/drawable/splash_screen.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/layout/activity_inicio_formulas.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/layout/activity_resultado_formula.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/mipmap-anydpi-v26/ecuacion.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/mipmap-anydpi-v26/ecuacion_round.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3675" />
+        <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3675" />
         <entry key="..\:/Users/sonic/AndroidStudioProjects/Formulas/app/src/main/res/mipmap-anydpi-v26/ic_quadratic_formula.xml" value="0.3675" />
       </map>
     </option>

@@ -10,16 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Formulas">
         <activity
-            android:name=".ResultadoFormula"
-            android:exported="false" />
-        <activity
-            android:name=".InicioFormulas"
-            android:exported="true">
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CustomSplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ResultadoFormula"
+            android:exported="false" />
+        <activity
+            android:name=".InicioFormulas"
+            android:exported="true">
         </activity>
     </application>
 
