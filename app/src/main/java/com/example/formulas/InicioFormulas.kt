@@ -57,8 +57,7 @@ class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     if (raices.isEmpty()) {
                         Toast.makeText(
                             this@InicioFormulas,
-                            "Lo sentimos, no hay soluciones reales para la ecuacion " +
-                                    "$ecuacion, intente ingresar otros valores",
+                            getString(R.string.equation_fail, ecuacion),
                             Toast.LENGTH_LONG
                         ).show()
                         return
@@ -166,7 +165,7 @@ class InicioFormulas : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private fun campoVacio(editText: EditText): Boolean {
         var esVacio = false
         if (editText.text.toString() == "") {
-            editText.error = "El campo no puede estar vacío"
+            editText.error = getString(R.string.error_empty_field)
             esVacio = true
         }
         return esVacio

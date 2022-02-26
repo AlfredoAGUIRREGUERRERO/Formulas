@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="calcularFormula"
-        android:text="Calcular"
+        android:text="@string/btn_calcular_text"
         app:cornerRadius="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:id="@+id/ivFormulas"
         android:layout_width="320dp"
         android:layout_height="200dp"
-        android:contentDescription="Muestra una representación de la formula seleccionada"
+        android:contentDescription="@string/cont_desc_iv_formula"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" a "
+            android:text="@string/tv_formula_cuad_a"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -77,10 +77,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de a"
+            android:hint="@string/et_hint_form_cuad_a"
             android:inputType="numberSigned"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
     </LinearLayout>
 
     <LinearLayout
@@ -102,7 +103,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" b "
+            android:text="@string/tv_formula_cuad_b"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -112,10 +113,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de b"
+            android:hint="@string/et_hint_form_cuad_b"
             android:inputType="numberSigned"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
 
     </LinearLayout>
 
@@ -138,7 +140,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" c "
+            android:text="@string/tv_formula_cuad_c"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -148,10 +150,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de c"
+            android:hint="@string/et_hint_form_cuad_c"
             android:inputType="numberSigned"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
 
     </LinearLayout>
 
@@ -175,7 +178,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" B "
+            android:text="@string/tv_area_trapecio_B"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -185,10 +188,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de B"
+            android:hint="@string/et_hint_area_trapecio_B"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
     </LinearLayout>
 
     <LinearLayout
@@ -210,7 +214,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" b "
+            android:text="@string/tv_area_trapecio_b"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -220,10 +224,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de b"
+            android:hint="@string/et_hint_area_trapecio_b"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
     </LinearLayout>
 
     <LinearLayout
@@ -245,7 +250,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/notosans_regular"
             android:minHeight="48dp"
-            android:text=" h "
+            android:text="@string/tv_area_trapecio_h"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -255,10 +260,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingresa el valor de b"
+            android:hint="@string/et_hint_area_trapecio_h"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="" />
     </LinearLayout>
 
     <!--Campos Distancia entre dos puntos-->
@@ -292,7 +298,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
                 android:minHeight="48dp"
-                android:text=" X1 "
+                android:text="@string/tv_dist_dos_puntos_x1"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -306,7 +312,8 @@
                 android:inputType="numberSigned"
                 android:minHeight="48dp"
                 android:textAlignment="center"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -328,7 +335,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
                 android:minHeight="48dp"
-                android:text=" Y1 "
+                android:text="@string/tv_dist_dos_puntos_y1"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -342,7 +349,8 @@
                 android:inputType="numberSigned"
                 android:minHeight="48dp"
                 android:textAlignment="center"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -378,7 +386,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
                 android:minHeight="48dp"
-                android:text=" X2 "
+                android:text="@string/tv_dist_dos_puntos_x2"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -392,7 +400,8 @@
                 android:inputType="numberSigned"
                 android:minHeight="48dp"
                 android:textAlignment="center"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -414,7 +423,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
                 android:minHeight="48dp"
-                android:text=" Y2 "
+                android:text="@string/tv_dist_dos_puntos_y2"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -428,7 +437,8 @@
                 android:inputType="numberSigned"
                 android:minHeight="48dp"
                 android:textAlignment="center"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -438,6 +448,7 @@
         android:id="@+id/imageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:contentDescription="@string/iv_content_desc_prof"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -451,7 +462,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/notosans_regular"
-        android:text="Selecciona una fórmula"
+        android:text="@string/tv_select_formula"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="28sp"

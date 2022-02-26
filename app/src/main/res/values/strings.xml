@@ -1,5 +1,31 @@
 <resources>
     <string name="app_name">Formulas</string>
+    <string name="btn_calcular_text">Calcular</string>
+    <string name="cont_desc_iv_formula">Muestra una representación de la formula seleccionada</string>
+    <string name="tv_formula_cuad_a">a</string>
+    <string name="et_hint_form_cuad_a">Ingresa el valor de a</string>
+    <string name="tv_formula_cuad_b">b</string>
+    <string name="et_hint_form_cuad_b">Ingresa el valor de b</string>
+    <string name="tv_formula_cuad_c">c</string>
+    <string name="et_hint_form_cuad_c">Ingresa el valor de c</string>
+    <string name="tv_area_trapecio_B">B</string>
+    <string name="et_hint_area_trapecio_B">Ingresa el valor de B</string>
+    <string name="tv_area_trapecio_b">b</string>
+    <string name="et_hint_area_trapecio_b">Ingresa el valor de b</string>
+    <string name="tv_area_trapecio_h">h</string>
+    <string name="et_hint_area_trapecio_h">Ingresa el valor de h</string>
+    <string name="tv_dist_dos_puntos_x1">X1</string>
+    <string name="tv_dist_dos_puntos_y1">Y1</string>
+    <string name="tv_dist_dos_puntos_x2">X2</string>
+    <string name="tv_dist_dos_puntos_y2">Y2</string>
+    <string name="iv_content_desc_prof">Imagen amigable de la app</string>
+    <string name="tv_select_formula">Selecciona una fórmula</string>
+    <string name="tv_result_title">Resultados</string>
+    <string name="error_empty_field">"El campo no puede estar vacío"</string>
+    <string name="equation_fail">Lo sentimos, no hay soluciones reales para la ecuacion %s, intente ingresar otros valores</string>
+    <string name="equation_sols">Las soluciones de la ecuación %1$s son: x1 = %2$.2f y x2 = %3$.2f</string>
+    <string name="area_trapecio">El área del trapecio con base mayor %1$d, base menor %2$d y altura %3$d es %4$d</string>
+    <string name="distancia_puntos">La distancia entre los puntos (%1$d, %2$d) y (%3$d, %4$d) es %5$.2f</string>
     <string-array name="formulas">
         <item>Ecuación cuadrática</item>
         <item>Área de un trapecio</item>
