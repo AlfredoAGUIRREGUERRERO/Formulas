@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Formulas</string>
+    <string name="btn_calcular_text">Calculate</string>
+    <string name="cont_desc_iv_formula">Shows a representation of the selected formula</string>
+    <string name="et_hint_form_cuad_a">Write the value of a</string>
+    <string name="et_hint_form_cuad_b">Write the value of b</string>
+    <string name="et_hint_form_cuad_c">Write the value of c</string>
+    <string name="et_hint_area_trapecio_B">Write the value of B</string>
+    <string name="et_hint_area_trapecio_b">Write the value of b</string>
+    <string name="et_hint_area_trapecio_h">Write the value of h</string>
+    <string name="iv_content_desc_prof">Friendly app image</string>
+    <string name="tv_select_formula">Select a formula</string>
+    <string name="tv_result_title">Results</string>
+    <string name="error_empty_field">Field can\'t be empty</string>
+    <string name="equation_fail">Sorry, there is no real solutions for equation %s, try other values</string>
+    <string name="equation_sols">The solutions for equation %1$s are: x1 = %2$.2f and x2 = %3$.2f</string>
+    <string name="area_trapecio">The area of trapezium with larger base %1$d, minor base %2$d and height %3$d is %4$d</string>
+    <string name="distancia_puntos">The distance between points (%1$d, %2$d) and (%3$d, %4$d) is %5$.2f</string>
+    <string name="form_cuad">Quadratic formula</string>
+    <string name="trapecio_area">Area of a trapezium</string>
+    <string name="dist_puntos">Distance between two points</string>
+</resources>
